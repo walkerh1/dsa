@@ -1,0 +1,71 @@
+PRE
+- Recursion
+- Asymptotic Analysis
+
+DATA STRUCTURE
+- Array
+  - Static Array
+  - Dynamic Array
+  - Ring Buffer
+- Linked List
+  - Singly Linked List
+  - Doubly Linked List
+- Stack (ADT)
+- Queue (ADT)
+- Tree
+  - Binary Tree
+  - Binary Search Tree
+    - Splay Tree
+    - AVL Tree
+    - 2-3-4 Tree
+    - Red Black Tree
+  - Min/Max Heap
+  - Trie
+  - B-Tree
+- Priority Queue (ADT)
+- Graph
+  - Representation
+    - Adjacency List
+    - Adjacency Matrix
+    - Array of Edges
+  - Weighted/Unweighted
+  - Directed/Undirected
+  - DAG
+- Hash Table
+- Map (ADT)
+- Set (ADT)
+- Disjoint Set (ADT)
+
+ALGORITHMS
+- Binary Search
+- Sorting
+  - Bubble Sort
+  - Selection Sort
+  - Insertion Sort
+  - Quick Sort
+  - Merge Sort
+- Floyd's Cycle Detection
+- Graph Algorithms
+  - DFS
+  - BFS
+  - Topological Sort
+  - Kruskal's Algorithm
+  - Prim's Algorithm
+  - Dijkstra's Algorithm
+  - Bellman-Ford Algorithm
+  - Floyd-Warshall Algorithm
+  - Warshall's Algorithm
+  - Edmonds-Karp Algorithm
+- String Algorithms
+  - Knuth-Morris-Pratt Algorithm
+  - Boyer-Moore Algorithm
+  - Rabin-Karp Algorithm
+  - Huffman's Algorithm
+
+STRATEGIES
+- Two Pointers
+- Sliding Window
+- Backtracking
+- Dynamic Programming
+- Greedy
+- Divide and Conquer

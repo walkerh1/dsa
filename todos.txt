@@ -15,19 +15,17 @@ DATA STRUCTURE
 - Tree
   - Binary Tree
   - Binary Search Tree
-    - Splay Tree
-    - AVL Tree
-    - 2-3-4 Tree
-    - Red Black Tree
-  - Min/Max Heap
+  - Splay Tree
+  - AVL Tree
+  - 2-3-4 Tree
+  - Red Black Tree
+  - Heap
   - Trie
   - B-Tree
 - Priority Queue (ADT)
 - Graph
-  - Representation
-    - Adjacency List
-    - Adjacency Matrix
-    - Array of Edges
+  - Adjacency List Representation
+  - Adjacency Matrix Representation
   - Weighted/Unweighted
   - Directed/Undirected
   - DAG
@@ -52,6 +50,7 @@ ALGORITHMS
   - Kruskal's Algorithm
   - Prim's Algorithm
   - Dijkstra's Algorithm
+  - A* Algorithm
   - Bellman-Ford Algorithm
   - Floyd-Warshall Algorithm
   - Warshall's Algorithm

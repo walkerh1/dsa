@@ -37,7 +37,7 @@ void push(Vector vec, ValueType val) {
    if (vec->len == vec->cap) {
       changeCap(vec, 2 * vec->cap);
    }
-   vec->vals[(vec->len)-1] = val;
+   vec->vals[(vec->len) - 1] = val;
 }
 
 ValueType pop(Vector vec) {
@@ -50,9 +50,32 @@ ValueType pop(Vector vec) {
    return vec->vals[vec->len];
 }
 
-void insertAt(Vector vec, ValueType val, int idx);
+void insertAt(Vector vec, ValueType val, int idx) {
+   assert(vec != NULL);
+   assert(idx >= 0 && idx < vec->len);
+   vec->len++;
+   if (vec->len == vec->cap) {
+      changeCap(vec, 2 * vec->cap);
+   }
+   for (int i = idx; i < vec->len - 1; i++) {
+      vec->vals[i+1] = vec->vals[i];
+   }
+   vec->vals[idx] = val;
+}
 
-ValueType removeAt(int idx);
+ValueType removeAt(Vector vec, int idx) {
+   assert(vec != NULL);
+   assert(idx >= 0 && idx < vec->len);
+   vec->len--;
+   if (4 * vec->len > vec->cap) {
+      changeCap(vec, vec->cap / 2);
+   }
+   ValueType result = vec->vals[idx];
+   for (int i = idx; i < vec->len; i++) {
+      vec->vals[i] = vec->vals[i+1];
+   }
+   return result;
+}
 
 int len(Vector vec) {
    return vec->len;
@@ -64,6 +87,7 @@ void destroy(Vector vec) {
    free(vec);
 }
 
+// helper for resizing the underlying arrays
 void changeCap(Vector vec, int newCap) {
    ValueType *newVals = (ValueType*)realloc(vec->vals, sizeof(ValueType) * newCap);
    assert(newVals != NULL);

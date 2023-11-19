@@ -20,7 +20,7 @@ ValueType pop(Vector vec);
 void insertAt(Vector vec, ValueType val, int idx);
 
 // remove and return value at idx and shift subsequent values left by 1
-ValueType removeAt(int idx);
+ValueType removeAt(Vector vec, int idx);
 
 // return length of vector
 int len(Vector vec);

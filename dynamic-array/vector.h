@@ -2,7 +2,7 @@ typedef struct VecRep *Vector;
 typedef int ValueType;
 
 // create new vector that stores elements of the specified type
-Vector create(ValueType type);
+Vector newVector();
 
 // return the value held at idx
 ValueType get(Vector vec, int idx);
@@ -24,6 +24,9 @@ ValueType removeAt(Vector vec, int idx);
 
 // return length of vector
 int len(Vector vec);
+
+// print vector
+void show(Vector vec);
 
 // free all the memory used by vector
 void destroy(Vector vec);

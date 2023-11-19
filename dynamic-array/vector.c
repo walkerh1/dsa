@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "vector.h"
 
 #define INITIAL_CAP 64
@@ -9,7 +10,7 @@ typedef struct VecRep {
    int cap;
 } VecRep;
 
-Vector create(ValueType type) {
+Vector create() {
    Vector v = (Vector)malloc(sizeof(VecRep));
    assert(v != NULL);
    v->len = 0;
@@ -79,6 +80,15 @@ ValueType removeAt(Vector vec, int idx) {
 
 int len(Vector vec) {
    return vec->len;
+}
+
+void show(Vector vec) {
+   putchar("[");
+   int i;
+   for (i = 0; i < vec->len - 1; i++) {
+      printf("%d, ", vec->vals[i]);
+   }
+   printf("%d]\n", vec->vals[i]);
 }
 
 void destroy(Vector vec) {

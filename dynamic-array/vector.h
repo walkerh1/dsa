@@ -1,14 +1,14 @@
 typedef struct VecRep *Vector;
 typedef int ValueType;
 
-// create new vector that stores elements of the specified type
+// create new vector
 Vector newVector();
 
 // return the value held at idx
 ValueType get(Vector vec, int idx);
 
 // set the element stored at idx of vector equal to value
-ValueType set(Vector vec, ValueType val, int idx);
+void set(Vector vec, ValueType val, int idx);
 
 // insert value at the end of the vector
 void push(Vector vec, ValueType val);

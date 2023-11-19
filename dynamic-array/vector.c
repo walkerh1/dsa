@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 #include "vector.h"
 
 #define INITIAL_CAP 64
@@ -10,7 +11,9 @@ typedef struct VecRep {
    int cap;
 } VecRep;
 
-Vector create() {
+void changeCap(Vector vec, int newCap);
+
+Vector newVector() {
    Vector v = (Vector)malloc(sizeof(VecRep));
    assert(v != NULL);
    v->len = 0;
@@ -26,7 +29,7 @@ ValueType get(Vector vec, int idx) {
    return vec->vals[idx];
 }
 
-ValueType set(Vector vec, ValueType val, int idx) {
+void set(Vector vec, ValueType val, int idx) {
    assert(vec != NULL);
    assert(idx >= 0 && idx < vec->len);
    vec->vals[idx] = val;
@@ -83,7 +86,7 @@ int len(Vector vec) {
 }
 
 void show(Vector vec) {
-   putchar("[");
+   putchar('[');
    int i;
    for (i = 0; i < vec->len - 1; i++) {
       printf("%d, ", vec->vals[i]);
@@ -97,8 +100,9 @@ void destroy(Vector vec) {
    free(vec);
 }
 
-// helper for resizing the underlying arrays
+// helper for resizing the underlying array
 void changeCap(Vector vec, int newCap) {
+   printf("here\n");
    ValueType *newVals = (ValueType*)realloc(vec->vals, sizeof(ValueType) * newCap);
    assert(newVals != NULL);
    vec->cap = newCap;

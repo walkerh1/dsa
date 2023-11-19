@@ -1,23 +1,25 @@
 typedef struct VecRep *Vector;
 typedef int ValueType;
 
-
 // create new vetor that stores provided type
 Vector create(ValueType type);
 
-// return the element at idx if it exists, else error
+// return the value at idx
 ValueType get(Vector vec, int idx);
 
-// insert element at the end of the vector
+// set the element at idx equal to value
+ValueType set(Vector vec, ValueType val, int idx);
+
+// insert value at the end of the vector
 void push(Vector vec, ValueType val);
 
-// remove element from the end of the vector
+// remove value from the end of the vector
 ValueType pop(Vector vec);
 
-// insert provided element at the index specified
+// insert value at the index specified and shift subsequent elemenets right by 1
 void insertAt(Vector vec, ValueType val, int idx);
 
-// remove element at idx and shift subsequent elements left
+// remove value at idx and shift subsequent values left by 1
 ValueType removeAt(int idx);
 
 // length of vector

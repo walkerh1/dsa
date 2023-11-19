@@ -25,6 +25,12 @@ ValueType get(Vector vec, int idx) {
    return vec->values[idx];
 }
 
+ValueType set(Vector vec, ValueType val, int idx) {
+   assert(vec != NULL);
+   assert(idx >= 0 && idx < vec->length);
+   vec->values[idx] = val;
+}
+
 void push(Vector vec, ValueType val);
 
 ValueType pop(Vector vec) {
@@ -41,3 +47,5 @@ ValueType removeAt(int idx);
 int len(Vector vec) {
    return vec->length;
 }
+
+void destroy(Vector vec) {}

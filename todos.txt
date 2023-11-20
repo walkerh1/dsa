@@ -42,6 +42,7 @@ ALGORITHMS
   - Insertion Sort
   - Quick Sort
   - Merge Sort
+- Quick Select
 - Floyd's Cycle Detection
 - Graph Algorithms
   - DFS

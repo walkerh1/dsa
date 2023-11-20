@@ -11,14 +11,23 @@ Vector createTestVector(int n) {
 }
 
 void test_insertAt() {
-   Vector v = createTestVector(20);
-   insertAt(v, 20, 9);
-   assert(get(v, 9) == 20);
-   assert(get(v, 10) == 9);
-   assert(len(v) == 21);
+   Vector v = createTestVector(10);
+   insertAt(v, 20, 5);
+   assert(get(v, 5) == 20);
+   assert(get(v, 6) == 5);
+   assert(len(v) == 11);
+   destroy(v);
+}
+
+void test_removeAt() {
+   Vector v = createTestVector(10);
+   removeAt(v, 5);
+   assert(get(v, 5) == 6);
+   assert(len(v) == 9);
    destroy(v);
 }
 
 int main(void) {
    test_insertAt();
+   test_removeAt();
 }

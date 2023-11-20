@@ -1,0 +1,6 @@
+category 1: repeatedly executing something an arbitraty number of times
+category 2: making a calculation based on a subproblem
+
+tip: pass information between recursive calls via parameters
+
+think top down

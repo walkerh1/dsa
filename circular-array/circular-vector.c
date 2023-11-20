@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <assert.h>
 #include "circular-vector.h"
 
@@ -15,13 +16,14 @@ int offset(CircVec vec, int idx);
 void changeCap(CircVec vec, int newCap);
 
 CircVec newCircVec() {
-   CircVec v = (CircVec*)malloc(sizeof(CircVecRep));
+   CircVec v = (CircVec)malloc(sizeof(CircVecRep));
    assert(v != NULL);
    v->cap = INITIAL_CAP;
    v->len = 0;
    v->head = 0;
    v->vals = (ValueType*)malloc(sizeof(ValueType) * v->cap);
    assert(v->vals != NULL);
+   show(v);
    return v;
 }
 
@@ -35,6 +37,48 @@ void set(CircVec vec, ValueType val, int idx) {
    assert(vec != NULL);
    assert(idx >= 0 && idx < vec->len);
    vec->vals[offset(vec, idx)] = val;
+}
+
+void push(CircVec vec, ValueType val) {
+   assert(vec != NULL);
+   vec->len++;
+   if (vec->len == vec->cap) {
+      changeCap(vec, 2 * vec->cap);
+   }
+   vec->vals[offset(vec, vec->len - 1)] = val;
+}
+
+void pushLeft(CircVec vec, ValueType val) {
+   assert(vec != NULL);
+   vec->len++;
+   if (vec->len == vec->cap) {
+      changeCap(vec, 2 * vec->cap);
+   }
+   int offset = vec->head - 1;
+   vec->head = offset < 0 ? vec->cap + offset : offset;
+}
+
+ValueType pop(CircVec vec) {
+   assert(vec != NULL);
+   assert(vec->len > 0);
+   ValueType result = vec->vals[offset(vec, vec->len - 1)];
+   vec->len--;
+   if (4 * vec->len < vec->cap) {
+      changeCap(vec, vec->cap / 2);
+   }
+   return result;
+}
+
+ValueType popLeft(CircVec vec) {
+      assert(vec != NULL);
+   assert(vec->len > 0);
+   ValueType result = vec->vals[offset(vec, 0)];
+   vec->len--;
+   if (4 * vec->len < vec->cap) {
+      changeCap(vec, vec->cap / 2);
+   }
+   vec->head = (vec->head + 1) % vec->cap;
+   return result;
 }
 
 void insertAt(CircVec vec, ValueType val, int idx) {
@@ -69,6 +113,10 @@ int len(CircVec vec) {
 }
 
 void show(CircVec vec) {
+   if (vec->len == 0) {
+      printf("[]\n");
+      return;
+   }
    putchar('[');
    int i;
    for (i = 0; i < vec->len - 1; i++) {
@@ -85,7 +133,8 @@ void destroy(CircVec vec) {
 
 // helper to get the actual index of the underlying array
 int offset(CircVec vec, int idx) {
-   return (vec->head + idx) % vec->cap;
+   int offset = vec->head + idx;
+   return offset < 0 ? vec->cap + offset : offset % vec->cap;
 }
 
 // helper for resizing the underlying array

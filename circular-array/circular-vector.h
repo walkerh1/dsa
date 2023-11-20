@@ -10,7 +10,19 @@ ValueType get(CircVec vec, int idx);
 // set the element stored at `idx` of `vec` equal to `val`
 void set(CircVec vec, ValueType val, int idx);
 
-// insert value at `idx` specified and shift subsequent values right by 1
+// insert `val` at the end of `vec`
+void push(CircVec vec, ValueType val);
+
+// insert `val` at the start of `vec`
+void pushLeft(CircVec vec, ValueType val);
+
+// remove and return last value in `vec`
+ValueType pop(CircVec vec);
+
+// remove and return fisrt value in `vec`
+ValueType popLeft(CircVec vec);
+
+// insert value at `idx` and shift subsequent values right by 1
 void insertAt(CircVec vec, ValueType val, int idx);
 
 // remove and return value at `idx` and shift subsequent values left by 1

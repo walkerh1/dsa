@@ -3,7 +3,7 @@
 #include <assert.h>
 #include "vector.h"
 
-#define INITIAL_CAP 64
+#define INITIAL_CAP 16
 
 typedef struct VecRep {
    ValueType *vals;
@@ -102,7 +102,6 @@ void destroy(Vector vec) {
 
 // helper for resizing the underlying array
 void changeCap(Vector vec, int newCap) {
-   printf("here\n");
    ValueType *newVals = (ValueType*)realloc(vec->vals, sizeof(ValueType) * newCap);
    assert(newVals != NULL);
    vec->cap = newCap;

@@ -1,10 +1,24 @@
 #include <stdlib.h>
+#include <assert.h>
 #include "vector.h"
 
-int main(void) {
+Vector createTestVector(int n) {
    Vector v = newVector();
-   for (int i = 0; i < 200; i++) {
+   for (int i = 0; i < n; i++) {
       push(v, i);
    }
-   show(v);
+   return v;
+}
+
+void test_insertAt() {
+   Vector v = createTestVector(20);
+   insertAt(v, 20, 9);
+   assert(get(v, 9) == 20);
+   assert(get(v, 10) == 9);
+   assert(len(v) == 21);
+   destroy(v);
+}
+
+int main(void) {
+   test_insertAt();
 }

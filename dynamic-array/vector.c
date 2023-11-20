@@ -83,10 +83,12 @@ ValueType removeAt(Vector vec, int idx) {
 }
 
 int len(Vector vec) {
+   assert(vec != NULL);
    return vec->len;
 }
 
 void show(Vector vec) {
+   assert(vec != NULL);
    putchar('[');
    int i;
    for (i = 0; i < vec->len - 1; i++) {

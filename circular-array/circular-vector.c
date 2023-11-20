@@ -109,10 +109,12 @@ ValueType removeAt(CircVec vec, int idx) {
 }
 
 int len(CircVec vec) {
+   assert(vec != NULL);
    return vec->len;
 }
 
 void show(CircVec vec) {
+   assert(vec != NULL);
    if (vec->len == 0) {
       printf("[]\n");
       return;

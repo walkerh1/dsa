@@ -57,7 +57,7 @@ ValueType pop(Vector vec) {
 
 void insertAt(Vector vec, ValueType val, int idx) {
    assert(vec != NULL);
-   assert(idx >= 0 && idx <= vec->len);
+   assert(idx >= 0 && idx < vec->len);
    vec->len++;
    if (vec->len == vec->cap) {
       changeCap(vec, 2 * vec->cap);
@@ -71,11 +71,11 @@ void insertAt(Vector vec, ValueType val, int idx) {
 ValueType removeAt(Vector vec, int idx) {
    assert(vec != NULL);
    assert(idx >= 0 && idx < vec->len);
+   ValueType result = vec->vals[idx];
    vec->len--;
    if (4 * vec->len < vec->cap) {
       changeCap(vec, vec->cap / 2);
    }
-   ValueType result = vec->vals[idx];
    for (int i = idx; i < vec->len; i++) {
       vec->vals[i] = vec->vals[i+1];
    }

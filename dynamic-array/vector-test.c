@@ -53,7 +53,7 @@ void test_pop() {
 void test_ops_on_empty_list() {
    Vector v = createTestVector(0);
    assert(len(v) == 0);
-   insertAt(v, 10, 0);
+   push(v, 10);
    assert(len(v) == 1);
    assert(get(v, 0) == 10);
    ValueType val = removeAt(v, 0);

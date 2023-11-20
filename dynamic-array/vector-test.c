@@ -64,6 +64,7 @@ void test_ops_on_empty_list() {
    val = pop(v);
    assert(val == 20);
    assert(len(v) == 0);
+   destroy(v);
 }
 
 int main(void) {

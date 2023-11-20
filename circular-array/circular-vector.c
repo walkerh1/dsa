@@ -70,7 +70,7 @@ ValueType pop(CircVec vec) {
 }
 
 ValueType popLeft(CircVec vec) {
-      assert(vec != NULL);
+   assert(vec != NULL);
    assert(vec->len > 0);
    ValueType result = vec->vals[offset(vec, 0)];
    vec->len--;
@@ -83,7 +83,7 @@ ValueType popLeft(CircVec vec) {
 
 void insertAt(CircVec vec, ValueType val, int idx) {
    assert(vec != NULL);
-   assert(idx >= 0 && idx <= vec->len);
+   assert(idx >= 0 && idx < vec->len);
    vec->len++;
    if (vec->len == vec->cap) {
       changeCap(vec, 2 * vec->cap);

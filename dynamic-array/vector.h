@@ -13,7 +13,7 @@ void set(Vector vec, ValueType val, int idx);
 // insert value at the end of the vector
 void push(Vector vec, ValueType val);
 
-// remove value from the end of the vector
+// remove and return value from the end of the vector
 ValueType pop(Vector vec);
 
 // insert value at the index specified and shift subsequent values right by 1

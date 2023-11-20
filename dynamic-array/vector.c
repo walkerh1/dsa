@@ -47,16 +47,17 @@ void push(Vector vec, ValueType val) {
 ValueType pop(Vector vec) {
    assert(vec != NULL);
    assert(vec->len > 0);
+   ValueType result = vec->vals[vec->len - 1];
    vec->len--;
-   if (4 * vec->len > vec->cap) {
+   if (4 * vec->len < vec->cap) {
       changeCap(vec, vec->cap / 2);
    }
-   return vec->vals[vec->len];
+   return result;
 }
 
 void insertAt(Vector vec, ValueType val, int idx) {
    assert(vec != NULL);
-   assert(idx >= 0 && idx < vec->len);
+   assert(idx >= 0 && idx <= vec->len);
    vec->len++;
    if (vec->len == vec->cap) {
       changeCap(vec, 2 * vec->cap);
@@ -71,7 +72,7 @@ ValueType removeAt(Vector vec, int idx) {
    assert(vec != NULL);
    assert(idx >= 0 && idx < vec->len);
    vec->len--;
-   if (4 * vec->len > vec->cap) {
+   if (4 * vec->len < vec->cap) {
       changeCap(vec, vec->cap / 2);
    }
    ValueType result = vec->vals[idx];
